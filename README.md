@@ -6,6 +6,24 @@ This project was created as a practical exercise for my course, following the pr
 
 ## Final Result:
 
+![final_result](images/final_result.png)
+
 ---
 
-## Some important codes: 
+## JavaScript, getting JSON element: 
+
+```js
+$.getJSON("https://api.imgflip.com/get_memes", (response) => {
+
+    for (let m of response.data.memes) {
+        document.getElementById("memes").innerHTML += 
+            `<br><div class="card m-auto p-3 shadow-lg mb-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">${m.name}</h5>
+                </div>
+                <img src=${m.url} class="card-img-top shadow rounded" alt="memeID_${m.id}">            
+            </div>`;
+    }
+
+});
+```
